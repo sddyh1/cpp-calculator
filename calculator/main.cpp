@@ -2,7 +2,9 @@
 
 
 int main() {
-    RunCalculatorCycle();
+    RunCalculatorCycle(); {
+        return 0;
+    }
 
 
 }

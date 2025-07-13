@@ -1,5 +1,4 @@
-// В этом файле определения функций.
-// За основу возьмите решение предыдущей задачи.
+
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -15,8 +14,22 @@ bool ReadNumber(Number& result) {
     return false;
 }
 
+bool IsOperation(const std::string& command) {
+
+    static const std::string operations[] = { "+", "-", "*", "/", "**" };
+    static const int op_count = sizeof(operations) / sizeof(operations[0]);
+
+    for (int i = 0; i < op_count; ++i) {
+        if (command == operations[i]) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
 bool RunCalculatorCycle() {
-    Number current;
+    Number current = 0.0;
     if (!ReadNumber(current)) {
 
         std::cerr << "Error: Numeric operand expected\n";
@@ -52,9 +65,9 @@ bool RunCalculatorCycle() {
 
             }
         }
-        else if (command == "+" || command == "-" || command == "*" || command == "/" || command == "**") {
+        else if (IsOperation(command)) {
 
-            Number operand;
+            Number operand = 0.0;
 
             if (ReadNumber(operand)) {
                 if (command == "+") {
