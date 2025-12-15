@@ -1,8 +1,10 @@
 #pragma once
 
 #include "calculator.h"
+#include "enums.h"
 
 #include <QMainWindow>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -17,27 +19,26 @@ public:
     MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
 
-private:
-    enum Operation {
-        NO_OPERATION,
-        ADDITION,
-        SUBTRACTION,
-        MULTIPLICATION,
-        DIVISION,
-        POWER
-    };
+    void SetInputText(const std::string& text);
 
-private:
-    void SetText(const QString& text);
-    void AddText(const QString& suffix);
+    void SetErrorText(const std::string& text);
 
-    QString RemoveTrailingZeroes(const QString &text);
-    QString NormalizeNumber(const QString &text);
+    void SetFormulaText(const std::string& text);
 
-    void SetOperation(Operation op);
-    QString OpToString(Operation op);
+    void SetMemText(const std::string& text);
+
+    void SetExtraKey(const std::optional<std::string>& key);
+
+    void SetDigitKeyCallback(std::function<void(int key)> cb);
+
+    void SetProcessOperationKeyCallback(std::function<void(Operation key)> cb);
+
+    void SetProcessControlKeyCallback(std::function<void(ControlKey key)> cb);
+
+    void SetControllerCallback(std::function<void(ControllerType controller)> cb);
 
 private slots:
+    void onCurrentIndexChanged(int index);
 
     void on_tb_zero_clicked();
 
@@ -59,13 +60,6 @@ private slots:
 
     void on_tb_nine_clicked();
 
-    void on_tb_comma_clicked();
-
-    void on_tb_negate_clicked();
-
-    void on_tb_backspace_clicked();
-
-
     void on_tb_add_clicked();
 
     void on_tb_substract_clicked();
@@ -80,20 +74,23 @@ private slots:
 
     void on_tb_reset_clicked();
 
-    void on_tb_ms_clicked();
+    void on_tb_backspace_clicked();
+
+    void on_tb_extra_clicked();
+
+    void on_tb_negate_clicked();
 
     void on_tb_mc_clicked();
 
-    void on_tn_mr_clicked();
+    void on_tb_mr_clicked();
 
-private:
-    Calculator calculator_;
-    QString input_number_;
-    Number active_number_;
-    Operation current_operation_ = Operation::NO_OPERATION;
-    double memory_;
-    bool has_memory_ = false;
+    void on_tb_ms_clicked();
 
 private:
     Ui::MainWindow* ui;
+    std::function<void(Operation key)> operation_cb_;
+    std::function<void(int key)> digit_cb_;
+    std::function<void(ControlKey key)> control_cb_;
+    std::function<void(ControllerType controller)> controller_cb_;
+
 };
