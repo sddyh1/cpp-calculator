@@ -84,7 +84,12 @@ void MainWindow::onCurrentIndexChanged(int index){
 }
 
 void MainWindow::on_tb_zero_clicked() {
-    digit_cb_(0);
+    if(digit_cb_){
+        digit_cb_(0);
+    }
+    else{
+        qDebug()<<"digit is not set";
+    }
 }
 
 void MainWindow::on_tb_one_clicked()
