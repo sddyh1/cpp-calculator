@@ -2,7 +2,6 @@
 #include "ui_mainwindow.h"
 #include "enums.h"
 
-#include <QDebug>
 #include <QString>
 
 MainWindow::MainWindow(QWidget* parent)
@@ -94,111 +93,221 @@ void MainWindow::on_tb_zero_clicked() {
 
 void MainWindow::on_tb_one_clicked()
 {
-    digit_cb_(1);
+    if(digit_cb_){
+        digit_cb_(1);
+    }
+    else{
+        qDebug()<<"digit is not set";
+    }
 }
 
 void MainWindow::on_tb_two_clicked()
 {
-    digit_cb_(2);
+    if(digit_cb_){
+        digit_cb_(2);
+    }
+    else{
+        qDebug()<<"digit is not set";
+    }
 }
 
 void MainWindow::on_tb_three_clicked()
 {
-    digit_cb_(3);
+    if(digit_cb_){
+        digit_cb_(3);
+    }
+    else{
+        qDebug()<<"digit is not set";
+    }
 }
 
 void MainWindow::on_tb_four_clicked()
 {
-    digit_cb_(4);
+    if(digit_cb_){
+        digit_cb_(4);
+    }
+    else{
+        qDebug()<<"digit is not set";
+    }
 }
 
 void MainWindow::on_tb_five_clicked()
 {
-    digit_cb_(5);
+    if(digit_cb_){
+        digit_cb_(5);
+    }
+    else{
+        qDebug()<<"digit is not set";
+    }
 }
 
 void MainWindow::on_tb_six_clicked()
 {
-    digit_cb_(6);
+    if(digit_cb_){
+        digit_cb_(6);
+    }
+    else{
+        qDebug()<<"digit is not set";
+    }
 }
 
 void MainWindow::on_tb_seven_clicked()
 {
-    digit_cb_(7);
+    if(digit_cb_){
+        digit_cb_(7);
+    }
+    else{
+        qDebug()<<"digit is not set";
+    }
 }
 
 void MainWindow::on_tb_eight_clicked()
 {
-    digit_cb_(8);
+    if(digit_cb_){
+        digit_cb_(8);
+    }
+    else{
+        qDebug()<<"digit is not set";
+    }
 }
 
 void MainWindow::on_tb_nine_clicked()
 {
-    digit_cb_(9);
+    if(digit_cb_){
+        digit_cb_(9);
+    }
+    else{
+        qDebug()<<"digit is not set";
+    }
 }
 
 void MainWindow::on_tb_add_clicked()
 {
-    operation_cb_(Operation::ADDITION);
+    if(operation_cb_){
+        operation_cb_(Operation::ADDITION);
+    }
+    else{
+        qDebug()<<"operation is not set";
+    }
 }
 
 void MainWindow::on_tb_substract_clicked()
 {
-    operation_cb_(Operation::SUBTRACTION);
+    if(operation_cb_){
+        operation_cb_(Operation::SUBTRACTION);
+    }
+    else{
+        qDebug()<<"operation is not set";
+    }
 }
 
 void MainWindow::on_tb_multiplicate_clicked()
 {
-    operation_cb_(Operation::MULTIPLICATION);
+    if(operation_cb_){
+        operation_cb_(Operation::MULTIPLICATION);
+    }
+    else{
+        qDebug()<<"operation is not set";
+    }
 }
 
 void MainWindow::on_tb_divide_clicked()
 {
-    operation_cb_(Operation::DIVISION);
+    if(operation_cb_){
+        operation_cb_(Operation::DIVISION);
+    }
+    else{
+        qDebug()<<"operation is not set";
+    }
 }
 
 void MainWindow::on_tb_power_clicked()
 {
-    operation_cb_(Operation::POWER);
+    if(operation_cb_){
+        operation_cb_(Operation::POWER);
+    }
+    else{
+        qDebug()<<"operation is not set";
+    }
 }
 
 void MainWindow::on_tb_equal_clicked()
 {
-    control_cb_(ControlKey::EQUALS);
+    if(control_cb_){
+        control_cb_(ControlKey::EQUALS);
+    }
+    else{
+        qDebug()<<"control is not set";
+    }
 }
 
 void MainWindow::on_tb_reset_clicked()
 {
-    control_cb_(ControlKey::CLEAR);
+    if(control_cb_){
+        control_cb_(ControlKey::CLEAR);
+    }
+    else{
+        qDebug()<<"control is not set";
+    }
 }
 
 void MainWindow::on_tb_backspace_clicked()
 {
-    control_cb_(ControlKey::BACKSPACE);
+    if(control_cb_){
+        control_cb_(ControlKey::BACKSPACE);
+    }
+    else{
+        qDebug()<<"control is not set";
+    }
 }
 
 void MainWindow::on_tb_extra_clicked()
 {
-    control_cb_(ControlKey::EXTRA_KEY);
+    if(control_cb_){
+        control_cb_(ControlKey::EXTRA_KEY);
+    }
+    else{
+        qDebug()<<"control is not set";
+    }
 }
 
 void MainWindow::on_tb_negate_clicked()
 {
-    control_cb_(ControlKey::PLUS_MINUS);
+    if(control_cb_){
+        control_cb_(ControlKey::PLUS_MINUS);
+    }
+    else{
+        qDebug()<<"control is not set";
+    }
 }
 
 void MainWindow::on_tb_mc_clicked()
 {
-    control_cb_(ControlKey::MEM_CLEAR);
+    if(control_cb_){
+        control_cb_(ControlKey::MEM_CLEAR);
+    }
+    else{
+        qDebug()<<"control is not set";
+    }
 }
 
 void MainWindow::on_tb_mr_clicked()
 {
-    control_cb_(ControlKey::MEM_LOAD);
+    if(control_cb_){
+        control_cb_(ControlKey::MEM_LOAD);
+    }
+    else{
+        qDebug()<<"control is not set";
+    }
 }
 
 void MainWindow::on_tb_ms_clicked()
 {
-    control_cb_(ControlKey::MEM_SAVE);
+    if(control_cb_){
+        control_cb_(ControlKey::MEM_SAVE);
+    }
+    else{
+        qDebug()<<"control is not set";
+    }
 }
 
